@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON and XML</title>
+</head>
+
+<body>
+    <div id="demo">
+        <script>
+            // object without using `` in the code 
+            // JSON string definition after declaration of `` in the list
+            let student = `[{
+                "name": "Himanshu",
+                "lastname": "Heda",
+                "email": "himanshuheda123@gmail.com"
+            },
+            {
+                "name": "Alok",
+                "lastname": "Vyas",
+                "email": "abhi13@gmail.com"
+            }]`;
+            alert(typeof student);
+
+            // Parse JSON string into a JavaScript object
+            let studentdata = JSON.parse(student);
+            alert(typeof studentdata);
+
+            // Display names of students from JSON data
+            document.getElementById("demo").innerHTML = "Names: " + studentdata[0].name + " and " + studentdata[1].name + "<br>";
+            document.getElementById("demo").innerHTML += "Emails: " + studentdata[0].email + " and " + studentdata[1].email;
+
+            // Create an XMLHttpRequest object
+            var xhttp = new XMLHttpRequest();
+
+            // Define a function to handle the XML response
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    extractXML(this);
+                }
+            };
+
+            // Send a GET request to retrieve the XML data
+            xhttp.open("GET", "student.json", true);
+            xhttp.send();
+
+            // Function to extract data from XML
+            function extractXML(xmldata) {
+                var xmlDoc = xmldata.responseXML;
+                var xmlText = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue + "<br>";
+
+                // Append the XML data to the existing HTML content
+                document.getElementById("demo").innerHTML += xmlText;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

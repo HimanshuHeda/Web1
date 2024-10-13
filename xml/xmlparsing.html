@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML PARSING</title>
+</head>
+<body>
+    <div id="content">Hello World</div>
+
+    <script>
+        var text = "<studentList>" + 
+            "<student><name>Himanshu</name>" +
+            "<course>BCA</course>" +
+            "</student></studentList>";
+
+            alert(text);
+
+            var xmlDoc = new DOMParser().parseFromString(text, "text/xml");
+            alert(xmlDoc);
+            
+            var xmlText;
+                xmlText = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue + "\n";
+                xmlText += xmlDoc.getElementsByTagName("course")[0].childNodes[0].nodeValue;
+            alert(xmlText);
+
+
+        // var text =  document.getElementById("content").innerHTML;
+        // alert(text);
+        document.getElementById("content").innerHTML =xmltext; 
+    </script>
+</body>
+</html>

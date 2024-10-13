@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML PARSING - AJAZ</title>
+</head>
+<body>
+    <button value="Load Data" onclick="LoadData();">Load Data</button>
+    <script>
+        function LoadData(){
+            // alert("This is loaddata");
+            var xhttp = new XMLHttpRequest();
+            
+            xhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                        alert("Everthing is working");
+                    extractXML(this);
+                }
+            };
+            xhttp.open("GET", "1st.xml", true);         // GET provides output as link and POST without link
+            xhttp.send();
+        }
+
+        function extractXML(xmldata){
+            var xmlDoc = xmldata.responseXML;
+
+            xmlText = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue + "<br>";
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+function loadData(){
+    //alert("this is loaddata");
+    var xhttp  = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        extractXML(this);
+        }
+    };
+
+    xhttp.open("GET", "student.xml",true);
+    xhttp.send();
+
+} -->

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="loadDoc();">
+
+    <p id="demo">Hello World</p>
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.open("GET", "book.xml", true);
+            xhttp.send();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this);
+                }
+            };
+        }
+
+        function myFunction(xml) {
+            var parser, xmlDoc;
+            /*var text = "<bookstore><book>" +
+            "<title>Let Us C</title>" +
+            "<author>Yashwant</author>" +
+            "<year>1985</year>" +
+            "</book>" +
+            "<book>" +
+            "<title>Programming with Java</title>" +
+            "<author>E. Balagurusamy</author>" +
+            "<year>1998</year>" +
+            "</book>" +
+            "</bookstore>";
+            
+            //parser = new DOMParser();
+            xmlDoc = new DOMParser().parseFromString(text,"text/xml");*/
+
+            //document.getElementById("demo").innerHTML =
+            //xmlDoc.getElementsByTagName("author")[1].childNodes[0].nodeValue;
+
+            var xmlDoc = xml.responseXML;
+
+            var txt = "";
+            //txt += xmlDoc.getElementsByTagName("author")[1].childNodes[0].nodeValue;
+            //txt += xmlDoc.getElementsByTagName("author")[1].childNodes[0].nodeValue;
+
+
+            for (x = 0; x < 3; x++) {
+                txt += xmlDoc.getElementsByTagName("author")[x].childNodes[0].nodeValue + "<br>";
+                //txt += "<br>" + xmlDoc.getElementsByTagName("author")[x].childNodes[0].nodeValue;
+                //txt += "<br>" + xmlDoc.getElementsByTagName("author")[x].childNodes[0].nodeValue;
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE studentList [
+    <!ELEMENT studentList (student+)>
+    <!ELEMENT student (id,name,phone)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ATTLIST student lang (eng|hindi|German) "eng">
+]>
+
+<!-- #PCDATA = Parsed Character data
+     + = 
+     * = 
+ -->
+
+<studentList>
+    <student lang="eng">
+        <id>1</id>
+        <name>Aditya</name>
+        <phone>67878900</phone>
+    </student>
+    <student lang="hindi">
+        <id>2</id>
+        <name>Himanshu</name>
+        <phone>67878930</phone>
+    </student>
+</studentList>

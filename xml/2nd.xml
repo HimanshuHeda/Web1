@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookStore [
+    <!ELEMENT bookStore (book+)>
+    <!ELEMENT book (title,author,year,price)>
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+    <!ELEMENT year (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+    <!ATTLIST book category (indiantime) "indiantime">
+    <!ATTLIST title lang (eng|hindi|German) "eng">
+]>
+
+<bookStore>
+    <book category="indiantime">
+        <title lang="eng">Everyday Italian</title>
+        <author>Giada De Laurentiis</author>
+        <year>2005</year>
+        <price>30.00</price>
+    </book>
+</bookStore>

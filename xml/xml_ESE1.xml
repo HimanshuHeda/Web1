@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE University [
+    <!ELEMENT University (college+)>
+    <!ELEMENT college (studentList+)>
+    <!ATTLIST college branch (eng|Med|maths) "eng">
+    <!ELEMENT studentList (id, name, marks, emailId)>
+    <!ATTLIST studentList course (BBA|BCA|MCA) "MCA">
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT marks (#PCDATA)>
+    <!ELEMENT emailId (#PCDATA)>
+]>
+
+<University>
+    <college branch="eng">
+        <studentList course="MCA">
+            <id>1</id>
+            <name>Himanshu</name>
+            <marks>90</marks>
+            <emailId>himanshuheda123@gmail.com</emailId>
+        </studentList>
+        <studentList course="MCA">
+            <id>2</id>
+            <name>Anurag</name>
+            <marks>80</marks>
+            <emailId>anurag648@gmail.com</emailId>
+        </studentList>
+    </college>
+</University>
